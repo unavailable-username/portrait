@@ -9,7 +9,11 @@ IMAGE_FOLDER = '/static/images'
 @app.route('/')
 def index():
     """ Handle requests to the index(/) by returning a list of files in the image folder """
-    response = "<ul>"
+
+    response = '<h1>Welcome to the Portfolio application.</h1>'
+    response = '<div>A work in progress</div>'
+    response += '<a href="https://bkr.family">Blog</a>'
+    response += "<ul>"
     for file in os.listdir(f'.{IMAGE_FOLDER}'):
         response += f'<li><a href="{IMAGE_FOLDER}/{file}">{file}</a></li>'
     response += "</ul>"

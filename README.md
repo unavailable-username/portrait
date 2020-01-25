@@ -17,7 +17,7 @@ pip install Flask
 
 Run the application
 ```
-export FLASK_APP=server.py
+export FLASK_APP=main.py
 flask run
 ```
 
@@ -31,7 +31,7 @@ pip install Flask
 
 Run the application
 ```
-set FLASK_APP=hello.py
+set FLASK_APP=main.py
 flask run
 ```
 
