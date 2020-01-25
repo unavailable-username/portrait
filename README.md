@@ -34,3 +34,11 @@ Run the application
 set FLASK_APP=hello.py
 flask run
 ```
+
+# Deploying to GCP
+
+To deploy to a GCP app engine
+```
+gcloud app deploy
+gcloud app browse
+```
