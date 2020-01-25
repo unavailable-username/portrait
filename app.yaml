@@ -2,7 +2,7 @@ runtime: python37
 
 instance_class: F1
 
-service: flask-portrait
+service: default
 
 # env_variables:
 #   BUCKET_NAME: "example-gcs-bucket"
