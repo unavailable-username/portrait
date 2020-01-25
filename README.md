@@ -1,14 +1,12 @@
 # Portrait
+## An app used to display images with a description in the browser.
 
-An app used to display images and a description in the browser.
+### Technologies Used
+* Python 3.7
+* Windows or Linux
+* Flask 1.1.x
 
-## Prerequisites
-
-Python 3.7
-Windows or Linux
-Flask 1.1.x
-
-# Setup + Running (Linux)
+## Setup + Running (Linux)
 Create a virtual env
 ```
 python3 -m venv venv
@@ -22,7 +20,7 @@ export FLASK_APP=server.py
 flask run
 ```
 
-# Setup + Running (Windows)
+## Setup + Running (Windows)
 Create a virtual env
 ```
 py -3 -m venv venv
