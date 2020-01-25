@@ -3,13 +3,13 @@ from flask import Flask
 import os
 app = Flask(__name__)
 
-# Add the route for the index
+IMAGE_FOLDER = '/static/images'
+
 @app.route('/')
 def index():
-    # Start the unordered list
-    response = "<ul><li>"
-    # retrieve all of the files and add them to the list
-    response += "</li><li>".join(os.listdir("./static/images"))
-    # end the list
-    response += "</li></ul>"
+    """ Handle requests to the index(/) by returning a list of files in the image folder """
+    response = "<ul>"
+    for file in os.listdir(f'.{IMAGE_FOLDER}'):
+        response += f'<li><a href="{IMAGE_FOLDER}/{file}">{file}</a></li>'
+    response += "</ul>"
     return response
