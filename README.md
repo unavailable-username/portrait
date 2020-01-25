@@ -1,5 +1,6 @@
 # Portrait
-## An app used to display images with a description in the browser.
+
+A flask app for serving images and a description in the browser.
 
 ### Technologies Used
 * Python 3.7
