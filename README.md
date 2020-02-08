@@ -35,6 +35,13 @@ set FLASK_APP=main.py
 flask run
 ```
 
+# Update requirements.txt
+While in virtual env: `pip freeze > requirements.txt`
+
+# Setup credentials
+https://cloud.google.com/docs/authentication/getting-started
+`export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/[FILE_NAME].json"`
+
 # Deploying to GCP
 
 To deploy to a GCP app engine
