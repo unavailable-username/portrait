@@ -12,11 +12,13 @@ IMAGE_FOLDER = '/static/images'
 def index():
     """ Handle requests to the index(/) by returning a list of files in the image folder """
 
-    response = '<h1>Welcome to the Portfolio application.</h1>'
-    response = '<div>A work in progress</div>'
+    response = '<head><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script></head>'
+    response += '<h1>Welcome to the Portfolio application.</h1>'
+    response += '<div>A work in progress</div>'
     response += '<a href="https://bkr.family">Blog</a>'
     response += get_images_list_html(IMAGE_FOLDER)
     response += get_blob_names_html(BUCKET_NAME)
+    response += get_images_js_html(BUCKET_NAME)
     return response
 
 def get_images_list_html(image_folder:str) -> str:
@@ -38,6 +40,24 @@ def get_blob_names_html(bucket_name:str) -> str:
         response += f'<li><a href="https://{blob.bucket.name}.storage.googleapis.com/{blob.name}">{blob.name}</a></li>'
     response += "</ul>"
     return response
+
+def get_images_js_html(bucket_name:str) -> str:
+    return """
+        <script>
+        f = fetch('https://storage.googleapis.com/storage/v1/b/baker-portfolio/o', {
+        headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+        }
+        }).then((response) => {
+            return response.json();
+        }).then((json) => {
+            console.log(json);
+            json.items.forEach(item => {
+                $("#jq").append(`<li><a href="${item.mediaLink}">${item.name}</a></li>`);
+            });
+        });
+        </script><ul id="jq"></ul>"""
 
 if __name__ == '__main__':
     # This is used when running locally only. When deploying to Google App
