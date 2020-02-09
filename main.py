@@ -43,6 +43,7 @@ def get_blob_names_html(bucket_name:str) -> str:
 
 def get_images_js_html(bucket_name:str) -> str:
     return """
+        <h4>From JSON REST API + JQ</h4>
         <script>
         f = fetch('https://storage.googleapis.com/storage/v1/b/baker-portfolio/o', {
         headers: {
