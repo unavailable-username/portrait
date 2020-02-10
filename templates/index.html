@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Portfolio</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Welcome to the Portfolio application.</h1>
+    <div>A work in progress</div>
+    <a href="https://bkr.family">My Blog</a>
+
+    <ul id="navigation">
+        <!-- {% for item in navigation %} -->
+        <!-- <li><a href="{{ item.href }}">{{ item.caption }}</a></li> -->
+        <!-- {% endfor %} -->
+    </ul>
+    <!-- {{ a_variable }} -->
+
+    <!-- {# a comment #} -->
+
+    <h4>From JSON REST API + JQ</h4>
+    <script>
+        f = fetch('https://storage.googleapis.com/storage/v1/b/baker-portfolio/o', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        }).then((response) => {
+            return response.json();
+        }).then((json) => {
+            console.log(json);
+            json.items.forEach(item => {
+                $("#jq").append(`<li><a href="${item.mediaLink}">${item.name}</a></li>`);
+            });
+        });
+    </script>
+    <ul id="jq"></ul>
+</body>
+</html>

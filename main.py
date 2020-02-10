@@ -1,5 +1,6 @@
-from flask import Flask
+from flask import Flask, render_template
 from google.cloud import storage
+from jinja2 import Template
 import os
 # If `entrypoint` is not defined in app.yaml, App Engine will look for an app
 # called `app` in `main.py`.
@@ -16,10 +17,14 @@ def index():
     response += '<h1>Welcome to the Portfolio application.</h1>'
     response += '<div>A work in progress</div>'
     response += '<a href="https://bkr.family">Blog</a>'
-    response += get_images_list_html(IMAGE_FOLDER)
-    response += get_blob_names_html(BUCKET_NAME)
+    # response += get_images_list_html(IMAGE_FOLDER)
+    # response += get_blob_names_html(BUCKET_NAME)
     response += get_images_js_html(BUCKET_NAME)
     return response
+
+@app.route('/jinja.html')
+def jinja_index():
+    return render_template('index.html', example_string="Hello World", example_list=[0,1,2,3,4,5])
 
 def get_images_list_html(image_folder:str) -> str:
     response = "<h4>From python app storage</h4>"
