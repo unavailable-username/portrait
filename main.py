@@ -17,8 +17,8 @@ def index():
     response += '<h1>Welcome to the Portfolio application.</h1>'
     response += '<div>A work in progress</div>'
     response += '<a href="https://bkr.family">Blog</a>'
-    # response += get_images_list_html(IMAGE_FOLDER)
-    # response += get_blob_names_html(BUCKET_NAME)
+    response += get_images_list_html(IMAGE_FOLDER)
+    response += get_blob_names_html(BUCKET_NAME)
     response += get_images_js_html(BUCKET_NAME)
     return response
 
