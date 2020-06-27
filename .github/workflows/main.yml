@@ -37,6 +37,6 @@ jobs:
         # filepath
         filepath: "main.py"
         # version
-        version: ${{ github.job }}
+        version: 'Scan from Github job: ${{ github.job }}'
         vid: ${{ secrets.VERACODE_ID }}
         vkey: ${{ secrets.VERACODE_KEY }}
