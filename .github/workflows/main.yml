@@ -31,12 +31,12 @@ jobs:
       uses: unavailable-username/veracode-community-uploadandscan-action@0.1.0
       with:
         # appname
-        appname: "portrait"
+        appname: ${{ github.repository }}
         # createprofile
         createprofile: true
         # filepath
         filepath: "main.py"
         # version
-        version: 'Scan from Github job: ${{ github.job }}'
+        version: 'Scan from Github job: ${{ github.run_id }}'
         vid: ${{ secrets.VERACODE_ID }}
         vkey: ${{ secrets.VERACODE_KEY }}
